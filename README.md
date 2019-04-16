@@ -25,6 +25,8 @@ Now launch Xcode create a new playground and get ready to have some fun 🎮🎳
 
 ### Linux
 
+Now is where you need the blender and all the wooden spoon 🤣
+
 Unfortunately, only Ubuntu 14.04, 16.04 or 18.04 (64-bit), is fully supported by the community.
 
 Let's install the swift dependencies
@@ -48,8 +50,21 @@ sudo cp -r swift-<VERSION>-<PLATFORM>/usr /usr
 
 ### Windows
 
-It is possible to run Swift on Windows, although not as easy as for Linux or macOS, of course.
+It is possible to run Swift on Windows, although not as easy as for Linux or macOS, of course 😁.
 
 https://swiftforwindows.github.io/
 
+This information was gathered from a few articles (do not blame me 🤣)
 
+- [The best one, Google for Swift on Linux 🤣](https://www.google.com/search?q=swift+on+linux&oq=swift+on+linux)
+- [Open Source Linux on Ubuntu Linux](https://medium.com/@agavatar/open-source-swift-on-ubuntu-linux-cd00e697dff0)
+- [Swift for Linux](https://swift-linux.refi64.com/en/latest/)
+- [Swift.org](https://swift.org/getting-started/#installing-swift)
+
+## The Second Ingredient is **Vapor** 🍞
+
+Comming soon... 🚧
+
+# About
+
+With ❤️ from [YouClap](https://youclap.tech) [Development team](mailto://development@youclap.tech)
