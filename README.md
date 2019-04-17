@@ -48,6 +48,49 @@ tar xzf swift-<VERSION>-<PLATFORM>.tar.gz
 sudo cp -r swift-<VERSION>-<PLATFORM>/usr /usr
 ```
 
+You also have to install SourceKit-LSP. SourceKit-LSP is an implementation of language server protocol to enable features like code completion and jump to definition for Swift. Although this is a project under heavy development 🚧 with a lot of changes almost every day.
+
+Basically you have to clone the sourcekit-lsp, build it linked to your swift instalation and copy it to a location on your path.
+
+Those are basic instructions if you followed my instructions to setup swift for linux:
+
+```
+cd /tmp
+git clone https://www.github.com/apple/sourcekit-lsp.git
+cd sourcekit-lsp
+swift build -Xcxx -I/usr/lib/swift -I/usr/lib/swift/Block
+sudo mv .build/x86_64-unknown-linux/debug/sourcekit-lsp /usr/bin
+```
+
+Now let's build the libSwiftPM.so
+
+```
+cd /tmp
+git clone https://github.com/apple/swift-package-manager.git
+cd swift-package-manager
+swift build -Xcxx -I/usr/lib/swift
+sudo mv .build/x86_64-unknown-linux/debug/sourcekit-lsp /usr/lib/swift/linux
+```
+
+Now let's build the extension for VSCode. VSCode is an Electron app and the extension built with JavaScript, so we need node and npm installed.
+
+If you are used to this, yum may use `nvm` i assume 😅, just make sure you are using node v11 to build the extension if not (shame on you again 🤣🙃i'm kidding).
+
+If you are not used to this and you don't have node and npm installed, you can install it with
+
+```
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Now let's build the extension and install the extension
+
+```
+cd /tmp/sourcekit-lsp/Editors/vscode
+npm run createDevPackage
+code --install-extension out/sourcekit-lsp-vscode-dev.vsix
+```
+
 ### Windows
 
 It is possible to run Swift on Windows, although not as easy as for Linux or macOS, of course 😁.
@@ -63,7 +106,38 @@ This information was gathered from a few articles (do not blame me 🤣)
 
 ## The Second Ingredient is **Vapor** 🍞
 
-Comming soon... 🚧
+### macOS
+
+I'm assuming you know what `brew` is, if you don't shame on you 🤣🙃 (i'm kidding). 
+It's just the best package manager for macOS, if you don't have it 👉 https://brew.sh/
+
+Brew to the rescue, install vapor with two simple commands
+
+```
+brew tap vapor/tap
+brew install vapor/tap/vapor
+```
+
+### Linux
+
+Make sure you have curl installed (just to make sure) 😁
+
+`sudo apt-get install curl`
+
+Now let's add APT repositories
+
+`eval "$(curl -sL https://apt.vapor.sh)"`
+
+And now install Vapor
+
+`sudo apt-get install vapor`
+
+For me, the best guide you can follow to mix all the ingredients, is the one from Reddit.
+
+- [Reddit with Swift, SourceKit-LSP, Vapor and VSCode](https://www.reddit.com/r/swift/comments/a1wv4h/linux_development_vscode_swift_autocompletion/)
+- [Vapor macOS](https://docs.vapor.codes/3.0/install/macos/)
+- [Vapor Linux](https://docs.vapor.codes/3.0/install/ubuntu/)
+
 
 # About
 
