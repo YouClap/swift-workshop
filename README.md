@@ -122,19 +122,11 @@ brew install vapor/tap/vapor
 
 ### Linux
 
-Make sure you have curl installed (just to make sure) 😁
+Unfortunately, Vapor toolbox is not compiled to work with Swift 5 yet. We will have to wait.
 
-`sudo apt install curl`
+We will by pass this by downloading a pre-created project from a likk that i will provide later.
 
-Now let's add APT repositories
-
-`eval "$(curl -sL https://apt.vapor.sh)"`
-
-And now install Vapor
-
-`sudo apt install vapor`
-
-For me, the best guide you can follow to mix all the ingredients, is the one from Reddit.
+If you want to give a shot making Vapor working with Swift 5 on linux and sourcekit, check out those links to see if they can help you 🙂
 
 - [Reddit with Swift, SourceKit-LSP, Vapor and VSCode](https://www.reddit.com/r/swift/comments/a1wv4h/linux_development_vscode_swift_autocompletion/)
 - [Vapor macOS](https://docs.vapor.codes/3.0/install/macos/)
