@@ -31,7 +31,7 @@ Unfortunately, only Ubuntu 14.04, 16.04 or 18.04 (64-bit), is fully supported by
 
 Let's install the swift dependencies
 
-> apt-get install clang libicu-dev libpython2.7
+> sudo apt install curl git clang libsqlite3-dev libblocksruntime-dev libncurses5-dev libicu-dev libpython2.7
 
 Now download the swift 5.0 DEVELOPMENT toolchain version specific to your system and the corresponding signature, from the [swift.org downloads page](https://swift.org/download/#snapshots).
 
@@ -58,7 +58,8 @@ Those are basic instructions if you followed my instructions to setup swift for 
 cd /tmp
 git clone https://www.github.com/apple/sourcekit-lsp.git
 cd sourcekit-lsp
-swift build -Xcxx -I/usr/lib/swift -I/usr/lib/swift/Block
+swift package update
+swift build -Xcxx -I/usr/lib/swift -Xcxx -I/usr/lib/swift/Block
 sudo mv .build/x86_64-unknown-linux/debug/sourcekit-lsp /usr/bin
 ```
 
@@ -68,19 +69,20 @@ Now let's build the libSwiftPM.so
 cd /tmp
 git clone https://github.com/apple/swift-package-manager.git
 cd swift-package-manager
+swift package update
 swift build -Xcxx -I/usr/lib/swift
-sudo mv .build/x86_64-unknown-linux/debug/sourcekit-lsp /usr/lib/swift/linux
+sudo mv .build/x86_64-unknown-linux/debug/libSwiftPM.so /usr/lib/swift/linux
 ```
 
 Now let's build the extension for VSCode. VSCode is an Electron app and the extension built with JavaScript, so we need node and npm installed.
 
-If you are used to this, yum may use `nvm` i assume 😅, just make sure you are using node v11 to build the extension if not (shame on you again 🤣🙃i'm kidding).
+If you are used to this, you may use `nvm` i assume 😅, just make sure you are using node v11 to build the extension if not (shame on you again 🤣🙃i'm kidding).
 
 If you are not used to this and you don't have node and npm installed, you can install it with
 
 ```
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt install -y nodejs
 ```
 
 Now let's build the extension and install the extension
@@ -122,7 +124,7 @@ brew install vapor/tap/vapor
 
 Make sure you have curl installed (just to make sure) 😁
 
-`sudo apt-get install curl`
+`sudo apt install curl`
 
 Now let's add APT repositories
 
@@ -130,7 +132,7 @@ Now let's add APT repositories
 
 And now install Vapor
 
-`sudo apt-get install vapor`
+`sudo apt install vapor`
 
 For me, the best guide you can follow to mix all the ingredients, is the one from Reddit.
 
