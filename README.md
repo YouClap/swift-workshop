@@ -45,7 +45,7 @@ Assmuning your download goes to the downloads folder in your system, i will prov
 cd ~/Downloads
 gpg --verify swift-<VERSION>-<PLATFORM>.tar.gz.sig
 tar xzf swift-<VERSION>-<PLATFORM>.tar.gz
-sudo cp -r swift-<VERSION>-<PLATFORM>/usr /usr
+sudo cp -r swift-<VERSION>-<PLATFORM>/usr/* /usr
 ```
 
 You also have to install SourceKit-LSP. SourceKit-LSP is an implementation of language server protocol to enable features like code completion and jump to definition for Swift. Although this is a project under heavy development 🚧 with a lot of changes almost every day.
@@ -131,6 +131,26 @@ If you want to give a shot making Vapor working with Swift 5 on linux and source
 - [Reddit with Swift, SourceKit-LSP, Vapor and VSCode](https://www.reddit.com/r/swift/comments/a1wv4h/linux_development_vscode_swift_autocompletion/)
 - [Vapor macOS](https://docs.vapor.codes/3.0/install/macos/)
 - [Vapor Linux](https://docs.vapor.codes/3.0/install/ubuntu/)
+
+
+## Let's mix the ingredients 🥧
+
+As Quim Barreiros says, let's use pressure cooker to see if we cook faster 🤣. 
+
+In this case and since vapor toolbox doesn't work well with linux and swift 5, you can download the bootstrap project from [here](https://github.com/YouClap/swift-workshop/raw/master/bookstore.tar.gz)
+
+Or if you prefer, a better way to download
+
+```
+curl -L -O https://github.com/YouClap/swift-workshop/raw/master/bookstore.tar.gz
+```
+
+And uncompress it
+
+```
+tar xfz bookstore.tar.gz
+```
+
 
 
 # About
